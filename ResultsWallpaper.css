@@ -1,0 +1,13 @@
+body {
+ background-image: url("fireworks.gif");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-attachment: fixed;
+}
+h1{
+	color:white;
+}
+p{
+	color:white;
+}

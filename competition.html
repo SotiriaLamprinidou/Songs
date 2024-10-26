@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ΜΟΥΣΙΚΟΣ ΔΙΑΓΩΝΙΣΜΟΣ </title>
+		<meta charset="utf-8">
+		<!-- tab icon -->
+		<link rel="icon" type="image/x-icon" href="star.ico"
+		style="border-radius: 6px;">
+		<link rel="stylesheet" type="text/css" href="CompetitionWallpaper.css"/>
+		
+		<!-- Style for menu bar  -->
+		<style>
+			body {
+			  margin: 0;
+			  font-family: Arial, Helvetica, sans-serif;
+			}
+
+			.topnav {
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			.topnav a {
+			  float: left;
+			  color: #f2f2f2;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			  font-size: 17px;
+			}
+
+			.topnav a:hover {
+			  background-color: #ddd;
+			  color: black;
+			}
+
+			.topnav a.active {
+			  background-color: #990000;
+			  color: white;
+			}
+		</style>
+		
+		<style>
+			form {
+			  background-color: #990000;
+			  width: 300px;
+			  border: 15px solid  #333;
+			  padding: 50px;
+			  margin: 20px;
+			  text-color: white;
+			}
+		</style>
+		
+	</head>
+	<body>
+	
+		<!-- menu bar -->
+		<div class="topnav">
+		  <a href="gen.html" target="_blank">Home</a>
+		  <a href="eminem.html" target="_blank">Eminem</a>
+		  <a href="ACDC.html" target="_blank">AC/DC</a>
+		  <a href="vote.html" target="_blank">Vote</a>
+		  <a class="active" href="competition.html" target="_blank">Competition</a>
+		</div>
+
+		<h1><center><strong>Μεγάλος διαγωνισμός μεταξύ των επισκεπτών με δώρο διπλό εισιτήριο για μουσική συναυλία.</strong></center></h1>
+
+		<form>
+			<br>
+			<legend><strong>Συμπληρώστε τα παρακάτω στοιχεία για να συμμετάσχετε στον διαγωνισμό</strong></legend>
+			<ul>
+			<li>Εισάγετε το πλήθος συμμετέχοντων στον διαγωνισμό<br>
+			<label for="studentCount"> Συμμετέχοντες: </label> 
+			<input type="text" id="studentCount" name="studentCount"><br>
+			</li>
+			<br>
+			<li>Εισάγετε το ψευδώνυμό σας για τον διαγωνισμό<br>
+			<label for="username"> Ψευδώνυμο: </label> 
+			<input type="text" id="username" name="username"><br>
+			</li>
+			<br>
+			<li>Εισάγετε την χρονιά της γέννησής σας<br>
+			<label for="studentyear"> Έτος: </label> 
+			<input type="text" id="studentyear" name="studentyear"><br>
+			</li>
+			</ul>
+			<input type="button" value="Save" onclick="save()" />
+			<button type="button" onclick="resultsSite()">Παρουσίαση αποτελεσμάτων</button>
+		</form>
+
+		<br><br><br><br>
+
+	</body>
+	<script>
+			<!-- collect the results from the form and send it to url   -->
+			function resultsSite() 
+			{
+				myStorage = window.sessionStorage;
+				var studentCount = parseInt(myStorage.getItem("studentCountData"));
+				var year = JSON.parse(myStorage.getItem("yeardata"));
+				var students = JSON.parse(myStorage.getItem("usernamedata"));
+				
+				<!-- finds the winners based on their birthyear being 2003 -->
+				var count=0
+				var topStudents=[]
+				var topYear=2003
+				for(var i=0; i<= year.length-1; i++)
+				{
+					if (topYear==year[i])
+					{
+						count = count + 1
+						topStudents.push(students[i])
+					}
+				}
+				
+				<!-- submits the competition's results in the url  -->
+				window.open("results.html?count=" + count + "&topStudents=" +  JSON.stringify(topStudents) , "_blank","_parent");
+			}
+
+			<!-- takes the results and transfers them to localStorage(myStorage) -->
+			function save() 
+			{
+				var studentCountValue= document.getElementById('studentCount').value
+				myStorage = window.sessionStorage;
+				myStorage.setItem('studentCountData', studentCountValue);
+				
+				if (!myStorage.getItem("yeardata"))
+				{
+					myStorage.setItem('yeardata', JSON.stringify([]));
+				}
+					
+				var yeardata = JSON.parse(myStorage.getItem('yeardata'))
+				var year = document.getElementById('studentyear').value
+				yeardata.push(parseInt(year));
+				myStorage.setItem('yeardata', JSON.stringify(yeardata));	
+				document.getElementById('studentyear').value = ""
+				
+				if (!myStorage.getItem("usernamedata"))
+				{
+					myStorage.setItem('usernamedata', JSON.stringify([]));
+				}
+					
+				var usernamedata = JSON.parse(myStorage.getItem('usernamedata'))
+				var username= document.getElementById('username').value
+				usernamedata.push(username);
+				myStorage.setItem('usernamedata', JSON.stringify(usernamedata));
+				document.getElementById('username').value = ""
+			}
+			
+			sessionStorage.clear()
+		</script>
+</html>

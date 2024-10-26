@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Αποτελέσματα Διαγωνισμού </title>
+		<!-- tab icon -->
+		<link rel="icon" type="image/x-icon" href="star.ico"
+		style="border-radius: 6px;">
+		<link rel="stylesheet" type="text/css" href="ResultsWallpaper.css"/> 
+	</head>
+	<body>
+		
+		<h1>Συγχαρητήρια!</h1>
+
+		<br>
+		
+		<p><strong>Το πλήθος των νικητών είναι:<span id="count"></span><strong></p>	
+		
+		<p><strong>Οι νικητές του διαγωνυσμού είναι οι:<span id="topStudents"></span></strong></p>
+		
+		<br>
+		
+	</body>
+	<!-- takes the results from the url and stores them in variables in order to use them -->
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		const count = urlParams.get('count');
+		var s = document.getElementById("count");
+		s.innerHTML = count;
+		
+		var topStudents =urlParams.get('topStudents');
+		var b = document.getElementById("topStudents");
+		topStudents = topStudents.replace('[','');
+		topStudents = topStudents.replace(']','');
+		b.innerHTML = topStudents;
+	</script>
+	
+</html>

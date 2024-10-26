@@ -1,0 +1,43 @@
+body {
+ background-image: url("disk.gif");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+legend{
+	color:white;
+}
+label{
+	color:white;
+}
+ul{
+	color:white;
+}
+.rating-css div {
+  color: #c98217;
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+.rating-css input {
+  display: none;
+}
+.rating-css input + label {
+  font-size: 15px;
+  text-shadow: 1px 1px 0 #c98217;
+  cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+  color: #838383;
+}
+.rating-css label:active {
+  transform: scale(0.8);
+  transition: 0.3s ease;
+}
+
+
+
+
