@@ -1,96 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="wallpaper.css"/>
-    <link rel="icon" type="image/x-icon" href="star.ico" style="border-radius: 6px;">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" type="text/css" href="wallpaper.css"/>
+		<!-- tab icon -->
+		<link rel="icon" type="image/x-icon" href="star.ico"
+		 style="border-radius: 6px;">
+		 
+		<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+		 
+		<!-- Style for menu bar  -->
+		<style>
+			body {
+			  margin: 0;
+			  font-family: Arial, Helvetica, sans-serif;
+			}
 
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-        }
+			.topnav {
+			  overflow: hidden;
+			  background-color: #333;
+			}
 
-        .topnav a {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
+			.topnav a {
+			  float: left;
+			  color: #f2f2f2;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			  font-size: 17px;
+			}
 
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+			.topnav a:hover {
+			  background-color: #ddd;
+			  color: black;
+			}
 
-        .topnav a.active {
-            background-color: #990000;
-            color: white;
-        }
-
-        form {
-            background-color: #990000;
-            width: 300px;
-            border: 15px solid  #333;
-            padding: 50px;
-            margin: 20px auto;
-            color: white; /* Changed to color instead of text-color */
-        }
-
-        ul {
-            list-style-type: none; /* Removes bullet points from the list */
-        }
-    </style>
-</head>
-<body>
-    <!-- Menu bar -->
-    <div class="topnav">
-        <a href="gen.html" target="_blank">Home</a>
-        <a href="eminem.html" target="_blank">Eminem</a>
-        <a href="ACDC.html" target="_blank">AC/DC</a>
-        <a class="active" href="vote.html" target="_blank">Vote</a>
-        <a href="competition.html" target="_blank">Competition</a>
-    </div>
-    
-    <form id="formtable" method="post" action="formdata.php">
-        <legend><strong>Συμπληρώστε τα παρακάτω στοιχεία</strong></legend>
-        <ul>
-            <li>
-                Εισάγετε τη χρονολογία κυκλοφορίας<br>
-                <label for="AlbumReleases">Έτος:</label> 
-                <input type="text" id="AlbumReleases" name="AlbumReleases" maxlength="4" required><br>
-            </li>
-            <li>
-                Εισάγετε το όνομα του δίσκου<br>
-                <label for="AlbumName">Όνομα δίσκου:</label> 
-                <input type="text" id="AlbumName" name="AlbumName" required><br>
-            </li>
-            <li>
-                Εισάγετε το ψευδώνυμο του επισκέπτη ο οποίος συμπληρώνει την κριτική<br>
-                <label for="VisitorName">Ψευδώνυμο:</label> 
-                <input type="text" id="VisitorName" name="VisitorName" required><br>
-            </li>
-            <li>
-                Εισάγετε την κριτική σας για το άλμπουμ<br>
-                <label for="Review">Σχόλιο:</label><br>
-                <textarea type="text" id="Review" name="Review" rows="2" required></textarea><br>
-            </li>
-            <li>
-                <label for="grade">Αστέρια:</label>
-                <input type="number" id="grade" name="grade" min="0" max="5" required>
-            </li>
-        </ul>
-        <center>
-            <input type="submit" value="Submit"/>
-        </center>
-    </form>
-</body>
+			.topnav a.active {
+			  background-color: #990000;
+			  color: white;
+			}
+		</style>
+		
+		<style>
+			form {
+			  background-color: #990000;
+			  width: 300px;
+			  border: 15px solid  #333;
+			  padding: 50px;
+			  margin: 20px;
+			  text-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- menu bar -->
+		<div class="topnav">
+		  <a  href="gen.html" target="_blank">Home</a>
+		  <a href="eminem.html" target="_blank">Eminem</a>
+		  <a href="ACDC.html" target="_blank">AC/DC</a>
+		  <a class="active" href="vote.html" target="_blank">Vote</a>
+		  <a href="competition.html" target="_blank">Competition</a>
+		</div>
+		
+		<form id="formtable" method="post" action="formdata.php">
+			<br>
+			<legend><strong>Συμπληρώστε τα παρακάτω στοιχεία</strong></legend>
+			<ul>
+			<li>Εισάγετε τη χρονολογία κυκλοφορίας<br>
+			<label for="AlbumReleases"> Έτος: </label> 
+			<input type="text" id="AlbumReleases" name="AlbumReleases" maxlength="4"><br>
+			</li>
+			<li>Εισάγετε το όνομα του δίσκου<br>
+			<label for="AlbumName"> Όνομα δίσκου: </label> 
+			<input type="text" id="AlbumName" name="AlbumName"><br>
+			</li>
+			<li>Εισάγετε το ψευδώνυμο του επισκέπτη ο οποίος συμπληρώνει την κριτική<br>
+			<label for="VisitorName"> Ψευδώνυμο: </label> 
+			<input type="text" id="VisitorName" name="VisitorName"><br>
+			</li>
+			<li>Εισάγετε την κριτική σας για το άλμπουμ<br>
+			<label for="Review"> Σχόλιο: </label><br>
+			<textarea type="text" id="Review" name="Review" rows="2"></textarea><br>
+			</li>
+			<li>
+			<label for="grade">Αστέρια:<input type="number" id="grade" min=0 max=5></label></center>
+			</li>
+			</ul> 
+			<center>
+			<input type="submit" value="Submit"/>
+			</center>
+		</form>	
+	</body>
 </html>
